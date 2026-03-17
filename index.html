@@ -290,28 +290,65 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
 <section class="section">
-  <div class="container">
-    <h2 class="title is-3 has-text-centered">
+  <div class="container is-max-widescreen"> <h2 class="title is-3 has-text-centered">
       System Design
     </h2>
-    <!-- Text Description -->
     <div class="content has-text-justified">
-            <p>
-              The human demonstration interface features a decoupled design comprising a fisheye camera, motion-capture gloves, high-resolution tactile sensors, and a T265 tracking camera. The robot execution platform utilizes an isomorphic perception architecture wherein the tactile sensors remain strictly consistent with those on the human demonstration interface. 
-            </p>
-          </div>
+      <p>
+        The human demonstration interface features a decoupled design comprising a fisheye camera, motion-capture gloves, high-resolution tactile sensors, and a T265 tracking camera. The robot execution platform utilizes an isomorphic perception architecture wherein the tactile sensors remain strictly consistent with those on the human demonstration interface. 
+      </p>
+    </div>
 
-    <!-- Figure -->
-    <figure style="text-align:center;">
-      <img 
-        src="static/images/systemdesign.jpg" 
-        loading="lazy"
-        style="max-width:1200px; width:80%; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
-  </div>
+    <div style="
+        display: flex;
+        justify-content: center; /* 水平居中整体内容 */
+        align-items: center;     /* 垂直方向对齐（可选） */
+        gap: 20px;               /* 模型和图片之间的间距 */
+        margin-top: 20px;        /* 与上方文字的间距 */
+        flex-wrap: wrap;         /* 移动端自动换行 */
+    ">
+
+      <div style="
+          flex: 1;                 /* 占据可用空间的分片 */
+          min-width: 300px;        /* 移动端最小宽度 */
+          max-width: 600px;        /* 限制模型最大宽度，避免抢镜 */
+          aspect-ratio: 4 / 3;     /* 保持模型的固定比例 */
+          border-radius: 12px;
+          overflow: hidden;        /* 确保圆角剪裁 iframe */
+          box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+          border: 1px solid #eee;  /* 给模型加个淡淡的边框，更有质感 */
+      ">
+        <iframe 
+          src="static/models/system.html" 
+          title="eDrawings 3D Model"
+          style="width: 100%; height: 100%; border: none;"
+          scrolling="no"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div style="
+          flex: 1;                 /* 占据可用空间的分片 */
+          min-width: 300px;        /* 移动端最小宽度 */
+          max-width: 600px;        /* 限制图片最大宽度 */
+      ">
+        <img 
+          src="static/images/systemdesign.jpg" 
+          loading="lazy"
+          alt="System Design Diagram"
+          style="
+              width: 100%;          /* 填满父容器 */
+              height: auto;         /* 保持比例 */
+              border-radius: 12px;
+              box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+              display: block;       /* 消除图片底部空隙 */
+          ">
+      </div>
+
+    </div>
+    </div>
 </section>
-<!-- End image carousel -->
 
 
 <div class="video-section-wrapper">
