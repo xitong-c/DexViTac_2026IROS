@@ -330,7 +330,115 @@
   </div>
 </section>
 <!-- End image carousel -->
-  
+
+
+<div class="video-section-wrapper">
+    <style>
+        .video-section-wrapper {
+            max-width: 1200px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+        .video-section-wrapper h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .video-grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 Columns */
+            grid-template-rows: repeat(2, 1fr);    /* 2 Rows */
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .video-card {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .video-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .nav-btn {
+            padding: 8px 20px;
+            background: #222;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .page-num {
+            font-weight: bold;
+            color: #555;
+        }
+        .v-hidden { display: none !important; }
+    </style>
+
+    <h2>We scale up data collection in diverse environments...</h2>
+
+    <div class="video-grid-container">
+        <div class="video-card v-page-1"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-1"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-1"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-1"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-1"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-1"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-1"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-1"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+
+        <div class="video-card v-page-2 v-hidden"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-2 v-hidden"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-2 v-hidden"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-2 v-hidden"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-2 v-hidden"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-2 v-hidden"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-2 v-hidden"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+        <div class="video-card v-page-2 v-hidden"><video src="static/videos/demo2.mp4" muted loop autoplay playsinline></video></div>
+    </div>
+
+    <div class="video-controls">
+        <button class="nav-btn" id="vPrev" disabled>Previous</button>
+        <span class="page-num" id="vPageText">1 / 2</span>
+        <button class="nav-btn" id="vNext">Next</button>
+    </div>
+
+    <script>
+        (function() {
+            const btnP = document.getElementById('vPrev');
+            const btnN = document.getElementById('vNext');
+            const txt = document.getElementById('vPageText');
+            const p1 = document.querySelectorAll('.v-page-1');
+            const p2 = document.querySelectorAll('.v-page-2');
+
+            function switchVPage(isPage2) {
+                p1.forEach(el => el.classList.toggle('v-hidden', isPage2));
+                p2.forEach(el => el.classList.toggle('v-hidden', !isPage2));
+                btnP.disabled = !isPage2;
+                btnN.disabled = isPage2;
+                txt.textContent = isPage2 ? "2 / 2" : "1 / 2";
+            }
+
+            btnP.onclick = () => switchVPage(false);
+            btnN.onclick = () => switchVPage(true);
+        })();
+    </script>
+</div>    
+
+    
 
  <!-- Video Subsection Title -->
     <h2 class="title is-3 has-text-centered">
